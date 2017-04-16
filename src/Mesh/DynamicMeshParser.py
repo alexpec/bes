@@ -10,7 +10,7 @@ from Parameters.GeometricParameter import GeometricParameter
 #===============================================================================
 class DynamicMeshParser(object):
     '''
-    Parses the mesh file in order to deal with the geometric parameters"
+    Parses the mesh file in order to deal with the geometric parameters.
     '''
     @property
     def tagged_file(self):

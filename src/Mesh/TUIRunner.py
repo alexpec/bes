@@ -11,7 +11,7 @@ import os
 #===============================================================================
 class TUIRunner(object):
     '''
-    Run Salome in second plane in order to generate the exported mesh file with the setted parameters
+    Run Salome in second plane in order to generate the exported mesh file with the set parameters.
     '''
     @property
     def script_name(self):
