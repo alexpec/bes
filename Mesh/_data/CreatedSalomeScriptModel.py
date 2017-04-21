@@ -12,7 +12,7 @@ salome.salome_init()
 theStudy = salome.myStudy
 
 #Adding Data Path
-data_path = r'/home/alexpec/Development/Workspace/Bes/src/Mesh/_data'#r'/home/alexpec/Desktop'
+data_path = r'/home/alexpec/Development/Workspace/Bes/Mesh/_data'
 
 
 import salome_notebook
@@ -295,6 +295,7 @@ smesh.SetName(BarrelBottomLine_top, 'BarrelBottomLine_top')
 '''
 Mesh_1.ExportUNV(data_path + "/" + 'Mesh_1.Unv')
 
+#THE PRINT BELOW MUST BE ADDED IN ORDER TO NOT HOLD THE SUBPROCESS
 print "Process Finished!"
 
 

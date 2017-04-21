@@ -1,5 +1,5 @@
-from Parameters.SystemParameter import SystemParameter
-from Parameters.ScalarParameter import GeometricParameter
+from Parameters.StringParameter import StringParameter
+from Parameters.ScalarParameter import ScalarParameter
 
 
 
@@ -69,16 +69,16 @@ class DynamicMeshParser(object):
         
         
 if __name__ == '__main__':
-    dataPath            = SystemParameter('dataPath', '%%%systemParameter_data_path%%%')
-    UNV_MeshName        = SystemParameter('UNV_MeshName', '%%%systemParameter_UNV_MeshName%%%')
+    dataPath            = StringParameter('dataPath', '%%%systemParameter_data_path%%%')
+    UNV_MeshName        = StringParameter('UNV_MeshName', '%%%systemParameter_UNV_MeshName%%%')
     
-    b                   = GeometricParameter('b', '%%%geometricParam_b%%%', float)
-    BarrelCenterline    = GeometricParameter('BarrelCenterline', '%%%geometricParam_BarrelCenterline%%%', float)
-    BarrelRadius        = GeometricParameter('BarrelRadius', '%%%geometricParam_BarrelRadius%%%', float)
-    VoidCenterline      = GeometricParameter('VoidCenterline', '%%%geometricParam_VoidCenterline%%%', float)
-    VoidRadius          = GeometricParameter('VoidRadius', '%%%geometricParam_VoidRadius%%%', float)
+    b                   = ScalarParameter('b', '%%%geometricParam_b%%%', float)
+    BarrelCenterline    = ScalarParameter('BarrelCenterline', '%%%geometricParam_BarrelCenterline%%%', float)
+    BarrelRadius        = ScalarParameter('BarrelRadius', '%%%geometricParam_BarrelRadius%%%', float)
+    VoidCenterline      = ScalarParameter('VoidCenterline', '%%%geometricParam_VoidCenterline%%%', float)
+    VoidRadius          = ScalarParameter('VoidRadius', '%%%geometricParam_VoidRadius%%%', float)
     
-    parser = DynamicMeshParser(r'/home/alexpec/Development/Workspace/Bes/src/Mesh/_data/DynamicSensor_Tagged.py')
+    parser = DynamicMeshParser(r'/home/alexpec/Development/Workspace/Bes/Mesh/_data/DynamicSensor_Tagged.py')
     parser.AddParameter(dataPath)
     parser.AddParameter(UNV_MeshName)
     parser.AddParameter(b)
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     
     
     param_dict = {
-            'dataPath'           : "r'/home/alexpec/Development/Workspace/Bes/src/Mesh/_data'",
+            'dataPath'           : "r'/home/alexpec/Development/Workspace/Bes/Mesh/_data'",
             'UNV_MeshName'       : "'Mesh_1.Unv'",
             'b'                  : 9.0,
             'BarrelCenterline'   : 15.0,
@@ -98,7 +98,7 @@ if __name__ == '__main__':
             'VoidRadius'         : 4.0,
         }
     
-    parser.ParseParameters(param_dict, r'/home/alexpec/Development/Workspace/Bes/src/Mesh/_data/create.py')
+    parser.ParseParameters(param_dict, r'/home/alexpec/Development/Workspace/Bes/Mesh/_data/create.py')
     
         
             

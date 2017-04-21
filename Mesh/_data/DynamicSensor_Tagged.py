@@ -12,7 +12,7 @@ salome.salome_init()
 theStudy = salome.myStudy
 
 #Adding Data Path
-data_path = %%%systemParameter_data_path%%%#r'/home/alexpec/Desktop'
+data_path = %%%systemParameter_data_path%%%
 
 
 import salome_notebook

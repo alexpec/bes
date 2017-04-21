@@ -51,10 +51,10 @@ class TUIRunner(object):
 
                 
 if __name__ == '__main__':
-    script_name = r'/home/alexpec/Development/Workspace/Bes/src/Mesh/_data/create.py'
+    script_name = r'/home/alexpec/Development/Workspace/Bes/Mesh/_data/create.py'
     
     tui_runner = TUIRunner(script_name, r'/home/alexpec/Development/Software/salome/salome')
-    tui_runner.Runner(r'/home/alexpec/Development/Workspace/Bes/src/Mesh/_data/Mesh_1.Unv')
+    tui_runner.Runner(r'/home/alexpec/Development/Workspace/Bes/Mesh/_data/Mesh_1.Unv')
     
                 
     
