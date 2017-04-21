@@ -1,5 +1,5 @@
 from Parameters.SystemParameter import SystemParameter
-from Parameters.GeometricParameter import GeometricParameter
+from Parameters.ScalarParameter import GeometricParameter
 
 
 
