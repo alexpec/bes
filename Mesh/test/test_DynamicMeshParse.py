@@ -1,10 +1,10 @@
-import pytest
 import os
+import pytest
 import shutil
-from _pytest.tmpdir import tmpdir_factory
+
 from Mesh.DynamicMeshParser import DynamicMeshParser
-from Parameters.StringParameter import StringParameter
 from Parameters.ScalarParameter import ScalarParameter
+from Parameters.StringParameter import StringParameter
 
 #=======================================================================================================================
 # FIXTURES
