@@ -21,3 +21,5 @@ class TerminalBuffer():
     def AddLine(self, line):
         self._buffer.append(line)
         
+        
+        
