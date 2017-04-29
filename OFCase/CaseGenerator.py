@@ -39,11 +39,15 @@ class CaseGenerator(object):
         
         
     def _CopyMeshFile(self, dest_dir):
-        file_in_dest_folder = os.path.join(dest_dir, self._mesh_file)
-        exist_dest_folder = self._VerifyFileExistance(file_in_dest_folder)
         
-        if exist_dest_folder:
-            shutil.rmtree(file_in_dest_folder)
+        msh_filename = os.path.split(self._mesh_file)[1]
+        
+        file_in_dest_folder = os.path.join(dest_dir, msh_filename)
+        exist_dest_file = self._VerifyFileExistance(file_in_dest_folder)
+        
+        
+        if exist_dest_file:
+            os.remove(file_in_dest_folder)
             
         shutil.copy2(self._mesh_file, file_in_dest_folder)
         
@@ -65,7 +69,7 @@ class CaseGenerator(object):
         
     def CopyCase(self):
         self._CopyFolderTree(self._base_folder, self._case_destination)
-        self._CopyMeshFile(self._mesh_file)
+        self._CopyMeshFile(self._case_destination)
         
         
     
