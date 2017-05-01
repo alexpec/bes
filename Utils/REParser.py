@@ -12,7 +12,7 @@ class REParser(object):
     
     @property
     def results(self):
-        return sel._results
+        return self._results
     
     
     

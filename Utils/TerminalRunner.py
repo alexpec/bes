@@ -11,11 +11,12 @@ class TerminalRunner(object):
     def buffer(self):
         return self._buffer
     
+    
     def __init__(self):
         self._buffer = TerminalBuffer()
         
     
-    def Runner(self, command):
+    def Runner(self, command, quiet=True):
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         
         while True:
