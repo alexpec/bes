@@ -13,15 +13,14 @@ class UnvMeshConverter(TerminalRunner):
         return self._unv_mesh_path
     
     @property
-    def quiet(self):
-        return self._quiet
+    def buffer(self):
+        return super(UnvMeshConverter, self).buffer
     
-    def __init__(self, unv_mesh_path, of_environment_cmd=None, quiet=False):
+    def __init__(self, unv_mesh_path, of_environment_cmd=None):
         super(UnvMeshConverter, self).__init__()
         
         self._unv_mesh_path = unv_mesh_path
         self._of_environment_cmd = of_environment_cmd
-        self._quiet = quiet
         
         
     def Runner(self):
@@ -31,9 +30,8 @@ class UnvMeshConverter(TerminalRunner):
                 self._unv_mesh_path)
         else:
             cmd = 'ideasUnvToFoam %s' %self._unv_mesh_path
-            
 
-        self.Runner(cmd)
+        super(UnvMeshConverter, self).Runner(cmd)
         
     
     

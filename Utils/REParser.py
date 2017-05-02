@@ -1,3 +1,5 @@
+import re
+from time import sleep
 
 
 
@@ -82,14 +84,36 @@ class REParser(object):
                                 will entry in infinity loop.
         '''
         patterns = self._data
+
+        while not buf.IsEmpty() or not buf.is_closed:
+            if buf.IsEmpty():
+                sleep(5)
+            else:
+                line = buf.ReadEntry()
+                for pattern in patterns:
+                    match = pattern[2].match(line)
+                    if match != None:
+                        result = pattern[3](match, line, None)
+                        self._results[pattern[0]].append(result)
+                        break
+                    
+                    
+                    
+        return self._results
+    
+    
+    def ParseString(self, text):
+        patterns = self._data
+        text.strip()
+        lines = text.split('\n')
         
-        line = buf.ReadEntry()
-        while line:
+        for idx, line in enumerate(lines):
             for pattern in patterns:
+                
                 match = pattern[2].match(line)
                 
                 if match != None:
-                    result = pattern[3](match, line)
+                    result = pattern[3](match, lines, idx)
                     self._results[pattern[0]].append(result)
                     break
         return self._results

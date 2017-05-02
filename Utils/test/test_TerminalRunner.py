@@ -22,6 +22,5 @@ def test_TerminalRunner():
     last_str = TR.buffer._buffer[-1]
     
     assert got_str == expected_str
-    assert last_str == None
     
     
