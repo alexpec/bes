@@ -1,5 +1,3 @@
-import pytest
-
 '''
 KEYS FOR IDEASUNVTOFOAM
 
@@ -39,16 +37,16 @@ KEYS FOR IDEASUNVTOFOAM
 &3 "Cell INT unv vertices INT has some undefined vertices ";
 &4 "Boundary face INT unv vertices INT has some undefined vertices ";
 &5 "The face index INT was not found amongst the cells. This kills the theory that INT is a cell zone ";
-
-
 '''
-from Utils.REParser import REParser
-import subprocess
+
+
+
 import os
+import pytest
+import subprocess
+
 from OFCase.UnvMeshConverter import UnvMeshConverter
-from threading import Thread
-from time import sleep
-# from _pytest.monkeypatch import monkeypatch
+from Utils.REParser import REParser
 
 def parse_message(match, lines, index):
     return match.group(0)
