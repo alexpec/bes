@@ -11,7 +11,7 @@ class CaseTagReplacer(ParameterParser):
     
     @property
     def parameters(self):
-        return super(CaseTagReplacer, self)._parameters
+        return super(CaseTagReplacer, self).parameters
     
     
     def __init__(self, case_path):
@@ -22,8 +22,9 @@ class CaseTagReplacer(ParameterParser):
     def ParseCase(self, param_dict):
         files_to_parse = []
         for root, dirs, files in os.walk(self._case_path, topdown=True):
-            tmp_file_path = os.path.join(root, files)
-            files_to_parse.append(tmp_file_path)
+            for file in files:
+                tmp_file_path = os.path.join(root, file)
+                files_to_parse.append(tmp_file_path)
             
         
         for file in files_to_parse:

@@ -1,3 +1,4 @@
+import os
 
 
 
@@ -37,6 +38,8 @@ class ParameterParser(object):
                 
             input_data = input_data.replace(param.tag, str(item))   
             
+        
         output = open(output_file, 'w')
         output.write(input_data)
         output.close()
+        

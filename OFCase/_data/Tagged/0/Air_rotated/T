@@ -38,7 +38,7 @@ boundaryField
         type            compressible::turbulentTemperatureCoupledBaffleMixed;
 	Tnbr            T;
 	kappaMethod	fluidThermo;
-	value           uniform 300;
+	value           uniform %%%ARTCR_T%%%;
     }
     Air_rotated_to_Barrel_rotated
     {
