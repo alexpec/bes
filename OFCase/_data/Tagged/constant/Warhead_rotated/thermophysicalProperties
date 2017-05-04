@@ -40,13 +40,13 @@ mixture
 
     thermodynamics
     {
-        Hf      0;
-        Cp      490;
+        Hf      %%%Warhead_hp%%%;
+        Cp      %%%Warhead_cp%%%;
     }
 
     equationOfState
     {
-        rho     8000;
+        rho     %%%Warhead_rho%%%;
     }
 }
 

@@ -40,8 +40,8 @@ mixture
 
     thermodynamics
     {
-        Hf      0;
-        Cp      490;
+        Hf      %%%Barrel_hp%%%;
+        Cp      %%%Barrel_cp%%%;
     }
 
     equationOfState

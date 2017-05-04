@@ -40,8 +40,8 @@ mixture
 
     thermodynamics
     {
-        Hf      0;
-        Cp      490;
+        Hf      0.0;
+        Cp      490.0;
     }
 
     equationOfState
