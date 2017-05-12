@@ -41,7 +41,7 @@ interface,
 
 responses,	
 	num_objective_functions = 1	
-	#numerical_gradients
-	#numerical_hessians
-	analytic_gradients		
-	analytic_hessians
+	numerical_gradients
+	numerical_hessians
+	#analytic_gradients		
+	#analytic_hessians
