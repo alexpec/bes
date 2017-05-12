@@ -1,0 +1,54 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/Calorimeter_rotated";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 300;
+
+boundaryField
+{
+    Calorimeter
+    {
+        type            zeroGradient;
+    }
+    Calorimeter_top
+    {
+        type            zeroGradient;
+    }
+    CalorimeterLine_rotated
+    {
+        type            fixedGradient;
+        gradient        uniform 10000;
+    }
+    Calorimeter_rotated_to_Air_rotated
+    {
+        type            compressible::turbulentTemperatureCoupledBaffleMixed;
+	Tnbr            T;
+	kappaMethod	solidThermo;
+	value           uniform 300;
+    }
+    Calorimeter_rotated_to_Warhead_rotated
+    {
+        type            compressible::turbulentTemperatureCoupledBaffleMixed;
+	Tnbr            T;
+	kappaMethod	solidThermo;
+	value           uniform 300.0;
+    }
+}
+
+
+// ************************************************************************* //

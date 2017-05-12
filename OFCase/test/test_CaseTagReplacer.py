@@ -43,11 +43,13 @@ def test_CaseTagReplacer(create_model_dir):
     
     curr_dir = os.path.dirname(os.path.abspath(__file__))
     module_dir, _ = os.path.split(curr_dir)
-    tagged_case_path = os.path.join(module_dir, '_data/Tagged')
-    case_destination = str(create_model_dir)
-    mesh_file = os.path.join(module_dir, '_data/Mesh_1.Unv')
+    package_dir = os.path.split(module_dir)[0]
     
-    expected_case_path = os.path.join(module_dir, '_data/Original')
+    tagged_case_path = os.path.join(package_dir, '_data/Tagged')
+    case_destination = str(create_model_dir)
+    mesh_file = os.path.join(package_dir, '_data/Mesh_1.Unv')
+    
+    expected_case_path = os.path.join(package_dir, '_data/Original')
 
     generator = CaseGenerator(tagged_case_path, case_destination, mesh_file, True)
     generator.CopyCase()

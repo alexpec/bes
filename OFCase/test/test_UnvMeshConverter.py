@@ -88,12 +88,13 @@ def Parser():
 def test_UnvMeshConverter(monkeypatch, Parser):
     curr_dir = os.path.dirname(os.path.abspath(__file__))
     module_dir, _ = os.path.split(curr_dir)
+    package_dir = os.path.split(module_dir)[0]
      
-    mesh_file =  os.path.join(module_dir, '_data/Mesh_1.Unv')   
+    mesh_file =  os.path.join(package_dir, '_data/Mesh_1.Unv')   
          
     par = Parser
     unv = UnvMeshConverter(mesh_file)
-    unv_output_file = os.path.join(module_dir, '_data/Logs_OFRun/log.ideasUnvToFoam')
+    unv_output_file = os.path.join(package_dir, '_data/Logs_OFRun/log.ideasUnvToFoam')
     
     class MonkeyProcess(object):
         @property

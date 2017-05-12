@@ -35,11 +35,12 @@ def _walk_in_dir(dir):
 def test_CaseGenerator(create_temporary_folder):
     curr_dir = os.path.dirname(os.path.abspath(__file__))
     module_dir = os.path.split(curr_dir)[0]
+    package_dir = os.path.split(module_dir)[0]
     
-    base_folder = os.path.join(module_dir, r'_data/Tagged')
+    base_folder = os.path.join(package_dir, r'_data/Tagged')
     case_destination = str(create_temporary_folder)
     
-    mesh_file = os.path.join(module_dir, r'_data/Mesh_1.Unv')
+    mesh_file = os.path.join(package_dir, r'_data/Mesh_1.Unv')
     
     
     generator = CaseGenerator(base_folder, case_destination, mesh_file, True)

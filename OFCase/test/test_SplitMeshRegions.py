@@ -48,12 +48,13 @@ def Parser():
 def test_SplitMeshRegions(monkeypatch, Parser):
     curr_dir = os.path.dirname(os.path.abspath(__file__))
     module_dir, _ = os.path.split(curr_dir)
+    package_dir = os.path.split(module_dir)[0]
     
-    case_dir = os.path.join(module_dir, '_data/Tagged')
+    case_dir = os.path.join(package_dir, '_data/Tagged')
     
     par = Parser
     smr = SplitMeshRegions(case_dir)
-    smr_output_file = os.path.join(module_dir, '_data/Logs_OFRun/log.splitMeshRegions')
+    smr_output_file = os.path.join(package_dir, '_data/Logs_OFRun/log.splitMeshRegions')
     
     
     class MonkeyProcess(object):

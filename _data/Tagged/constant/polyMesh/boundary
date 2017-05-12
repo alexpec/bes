@@ -1,0 +1,94 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+12
+(
+    Calorimeter
+    {
+        type            patch;
+        nFaces          494;
+        startFace       5750;
+    }
+    Warhead
+    {
+        type            patch;
+        nFaces          280;
+        startFace       6244;
+    }
+    Barrel
+    {
+        type            patch;
+        nFaces          960;
+        startFace       6524;
+    }
+    Air
+    {
+        type            patch;
+        nFaces          1200;
+        startFace       7484;
+    }
+    Calorimeter_top
+    {
+        type            patch;
+        nFaces          494;
+        startFace       8684;
+    }
+    Warhead_top
+    {
+        type            patch;
+        nFaces          280;
+        startFace       9178;
+    }
+    Barrel_top
+    {
+        type            patch;
+        nFaces          960;
+        startFace       9458;
+    }
+    Air_top
+    {
+        type            patch;
+        nFaces          1200;
+        startFace       10418;
+    }
+    CalorimeterLine_rotated
+    {
+        type            patch;
+        nFaces          24;
+        startFace       11618;
+    }
+    ExtLine_rotated
+    {
+        type            patch;
+        nFaces          92;
+        startFace       11642;
+    }
+    AirBottomLine_rotated
+    {
+        type            patch;
+        nFaces          20;
+        startFace       11734;
+    }
+    BarrelBottomLine_rotated
+    {
+        type            patch;
+        nFaces          16;
+        startFace       11754;
+    }
+)
+
+// ************************************************************************* //
