@@ -1,7 +1,0 @@
-
-
-
-
-
-class CreateNewCase(object):
-    pass
