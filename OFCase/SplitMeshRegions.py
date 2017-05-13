@@ -49,6 +49,7 @@ class SplitMeshRegions(TerminalRunner):
         self._ofcase_path = ofcase_path
         
         self._parser = REParser()
+        self._setUpParser()
         
     def Runner(self, cellzones=True, overwrite=False):
         main_cmd = 'splitMeshRegion'

@@ -52,47 +52,13 @@ def parse_message(match, lines, index):
     return match.group(0)
 
 
-@pytest.fixture
-def Parser():
-    
-    parser = REParser()
-    
-    parser.AddPattern('W#01', 'Skipping section at line \d*', parse_message)
-    parser.AddPattern('W#02', 'Starting reading units at line \d*', parse_message)
-    parser.AddPattern('W#03', 'Unit factors*', parse_message)
-    parser.AddPattern('W#04', 'Starting reading points at line \d*.', parse_message)
-    parser.AddPattern('W#05', 'Points not in order starting at point \d*.', parse_message)
-    parser.AddPattern('W#06', 'Starting reading cells at line \d*.', parse_message)
-    parser.AddPattern('W#07', 'First occurrence of element type \d* for cell \d* at line \d*', parse_message)
-    parser.AddPattern('W#08', 'Line: \d* element: \d* type: \d* collapsed from \d* to: \d*', parse_message)
-    parser.AddPattern('W#09', 'Read \d* cells and \d* boundary face', parse_message)
-    parser.AddPattern('W#10', 'For group \d* named (.*) trying to read \d* patch face indices.', parse_message)
-    parser.AddPattern('W#11', 'Starting reading constraints at line \d*', parse_message)
-    parser.AddPattern('W#12', 'For DOF set \d* named (.*) trying to read vertex indices.', parse_message)
-    parser.AddPattern('W#13', 'Processing tag: (.*)', parse_message)
-    parser.AddPattern('W#14', 'Skipping tag (.*) on line \d*', parse_message)
-    parser.AddPattern('W#15', 'Using \d* DOF sets to detect boundary faces', parse_message)
-    parser.AddPattern('W#16', 'Sorting boundary faces according to group (patch)', parse_message)
-    parser.AddPattern('W#17', 'Writing boundary faces to OBJ file boundaryFaces.obj', parse_message)
-    parser.AddPattern('W#18', 'Constructing mesh with non-default patches of size', parse_message)
-    parser.AddPattern('W#19', 'Adding cell and face zones', parse_message)
-    
-    parser.AddPattern('E#01', 'Points not in order starting at point', parse_message)
-    parser.AddPattern('E#02', 'Cannot open file', parse_message)
-    parser.AddPattern('E#03', 'Cell \d* unv vertices \d* has some undefined vertices', parse_message)
-    parser.AddPattern('E#04', 'Boundary face \d* unv vertices \d* has some undefined vertices', parse_message)
-    parser.AddPattern('E#05', 'The face index \d* was not found amongst the cells. This kills the theory that \d* is a cell zone', parse_message)
-    
-    return parser
-
-def test_UnvMeshConverter(monkeypatch, Parser):
+def test_UnvMeshConverter(monkeypatch):
     curr_dir = os.path.dirname(os.path.abspath(__file__))
     module_dir, _ = os.path.split(curr_dir)
     package_dir = os.path.split(module_dir)[0]
      
     mesh_file =  os.path.join(package_dir, '_data/Mesh_1.Unv')   
          
-    par = Parser
     unv = UnvMeshConverter(mesh_file)
     unv_output_file = os.path.join(package_dir, '_data/Logs_OFRun/log.ideasUnvToFoam')
     
@@ -117,7 +83,7 @@ def test_UnvMeshConverter(monkeypatch, Parser):
     
     
     unv.Runner()
-    results = par.ParseBuffer(unv.buffer)
+    results = unv.ParseBuffer()
     
     entries_expected = {
         'E#01' : 0,
