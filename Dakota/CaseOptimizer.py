@@ -2,6 +2,8 @@ from OFCase.CaseGenerator import CaseGenerator
 import os
 from Mesh.DynamicMeshParser import DynamicMeshParser
 from OFCase.CaseTagReplacer import CaseTagReplacer
+from OFCase.UnvMeshConverter import UnvMeshConverter
+from OFCase.SplitMeshRegions import SplitMeshRegions
 
 
 
@@ -95,6 +97,32 @@ class CaseOptimizer(object):
         parser.ParseCase(param_dict)
         
         return True
+    
+    def _UnvMeshConverter(self):
+        run_folder = self._run_folder
+        mesh_file = self._mesh_file
+        parameters = self._parameters
+        
+        _, mesh_file_name = os.path.split(mesh_file)
+        created_mesh = os.path.join(run_folder, mesh_file_name)
+        
+        unv = UnvMeshConverter(created_mesh)
+        #Insert here the parser for UNV data
+        
+        
+        return True
+    
+    
+    def _SplitMeshRegions(self):
+        run_folder = self._run_folder
+        
+        smr = SplitMeshRegions(run_folder, True, False)
+        #Insert here the parser for SMR
+        
+        return True
+        
+        
+        
     
     
     

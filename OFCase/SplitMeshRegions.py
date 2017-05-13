@@ -24,9 +24,13 @@ class SplitMeshRegions(TerminalRunner):
         self._of_environment_cmd = of_environment_cmd
         self._ofcase_path = ofcase_path
         
-    def Runner(self):
+    def Runner(self, cellzones=True, overwrite=False):
+        main_cmd = 'splitMeshRegion'
         
-        main_cmd = 'splitMeshRegion -cellZones -overwrite'
+        if cellzones:
+            main_cmd = main_cmd + ' -cellZones'
+        if overwrite:
+            main_cmd = main_cmd + ' -overwrite'
         path_cmd = main_cmd + ' -case %s' %self._ofcase_path
         
         if self._of_environment_cmd != None:
