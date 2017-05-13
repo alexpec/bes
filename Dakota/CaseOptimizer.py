@@ -101,14 +101,19 @@ class CaseOptimizer(object):
     def _UnvMeshConverter(self):
         run_folder = self._run_folder
         mesh_file = self._mesh_file
-        parameters = self._parameters
         
         _, mesh_file_name = os.path.split(mesh_file)
         created_mesh = os.path.join(run_folder, mesh_file_name)
         
         unv = UnvMeshConverter(created_mesh)
-        #Insert here the parser for UNV data
+        messages = unv.ParseBuffer()
         
+        for key, item in messages.iteritems():
+            if 'E' in key and item > 0:
+                raise Exception("UnvMeshConverter Failed with Error %s" %key)
+            
+            elif 'W' in key and item > 0:
+                print 'WARNING::UnvMeshConverter raised Warning %s' %key
         
         return True
     
@@ -117,7 +122,14 @@ class CaseOptimizer(object):
         run_folder = self._run_folder
         
         smr = SplitMeshRegions(run_folder, True, False)
-        #Insert here the parser for SMR
+        messages = smr.ParseBuffer()
+        
+        for key, item in messages.iteritems():
+            if 'E' in key and item > 0:
+                raise Exception("SplitMeshRegions Failed with Error %s" %key)
+            
+            elif 'W' in key and item > 0:
+                print "WARNING:SplitMeshRegions raised Warning %s" %key
         
         return True
         
